@@ -81,7 +81,7 @@ export default function WelcomeSlide({ studentName, setStudentName, onStart }: W
       >
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <label className="text-white font-extrabold text-sm md:text-base text-left block">
-            Qual é o seu nome, pequeno campeão? 👇
+            Qual é seu nome pequena campeã, pequeno campeão? 👇
           </label>
           <input
             id="student-name-input"

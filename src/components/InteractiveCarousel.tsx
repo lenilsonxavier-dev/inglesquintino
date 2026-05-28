@@ -10,6 +10,8 @@ import { SLIDES_DATA } from '../data';
 import WelcomeSlide from './WelcomeSlide';
 import VocabularySlides from './VocabularySlides';
 import QuizGame from './QuizGame';
+import AulasSlide from './AulasSlide';
+import TutorQuintiSlide from './TutorQuintiSlide';
 
 interface InteractiveCarouselProps {
   studentName: string;
@@ -88,7 +90,15 @@ export default function InteractiveCarousel({ studentName, setStudentName }: Int
               />
             )}
 
-            {activeSlide.type !== 'welcome' && activeSlide.type !== 'quiz' && (
+            {activeSlide.type === 'aulas' && (
+              <AulasSlide slide={activeSlide} />
+            )}
+
+            {activeSlide.type === 'tutor' && (
+              <TutorQuintiSlide slide={activeSlide} />
+            )}
+
+            {activeSlide.type !== 'welcome' && activeSlide.type !== 'quiz' && activeSlide.type !== 'aulas' && activeSlide.type !== 'tutor' && (
               <VocabularySlides
                 slide={activeSlide}
                 studentName={studentName}
@@ -148,7 +158,9 @@ export default function InteractiveCarousel({ studentName, setStudentName }: Int
                   {slide.type === 'animals' && '4. Selva'}
                   {slide.type === 'feelings' && '5. Humor'}
                   {slide.type === 'values' && '6. Amor'}
-                  {slide.type === 'quiz' && '7. Quiz'}
+                  {slide.type === 'aulas' && '7. Aulas'}
+                  {slide.type === 'tutor' && '8. Tutor'}
+                  {slide.type === 'quiz' && '9. Quiz'}
                 </button>
               );
             })}

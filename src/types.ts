@@ -11,7 +11,7 @@ export interface VocabularyItem {
   color?: string; // used for custom styling
 }
 
-export type SlideType = 'welcome' | 'greetings' | 'colors' | 'school' | 'animals' | 'feelings' | 'values' | 'quiz' | 'certificate';
+export type SlideType = 'welcome' | 'greetings' | 'colors' | 'school' | 'animals' | 'feelings' | 'values' | 'quiz' | 'aulas' | 'tutor' | 'certificate';
 
 export interface InteractiveSlide {
   id: string;
