@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #0f172a;
+}
+
+/* Hide standard scrollbars for kid-friendly full interface flow */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Support clean print parameters for the cert */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-diploma, #printable-diploma * {
+    visibility: visible;
+  }
+  #printable-diploma {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: 8px solid #f59e0b !important;
+    box-shadow: none !important;
+  }
+}
