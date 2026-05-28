@@ -6,8 +6,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, ArrowRight } from 'lucide-react';
-
-const mascotImage = '/src/assets/images/teacher_leno_mascot_1779979514957.png';
+import mascotImage from '../assets/images/teacher_leno_mascot_1779979514957.png';
 
 interface WelcomeSlideProps {
   studentName: string;
