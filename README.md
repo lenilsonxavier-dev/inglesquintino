@@ -1,20 +1,15 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Inglês Legal - Teacher Leno
 
-# Run and deploy your AI Studio app
+Aplicação interativa para ensino de inglês desenvolvida para a EMEF Quintino Bocaiúva - Osasco.
 
-This contains everything you need to run your app locally.
+## Como publicar no GitHub Pages
 
-View your app in AI Studio: https://ai.studio/apps/cefaa438-3cbd-4d3e-9382-a819df173b7d
+1. **GitHub Actions**: O arquivo `.github/workflows/deploy.yml` já está configurado.
+2. No seu repositório no GitHub, vá em **Settings > Pages**.
+3. Em **Build and deployment > Source**, selecione **GitHub Actions**.
+4. Sempre que você fizer um `push` (enviar arquivos) para o branch `main`, o site será atualizado automaticamente.
 
-## Run Locally
+## Correções de Erro 404 (Página em Branco)
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- Ajustamos o `index.html` para usar caminhos relativos: `src/main.tsx` (sem a barra inicial).
+- Configuramos `vite.config.ts` com `base: './'`.
