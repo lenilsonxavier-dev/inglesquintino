@@ -12,19 +12,13 @@ Aplicação interativa para ensino de inglês desenvolvida para a EMEF Quintino 
 ## Por que a página estava em branco? (404) Corrigido ✅
 
 Fizemos as correções necessárias:
-1. **Vite Base Path**: O `base` no `vite.config.ts` está configurado como `/inglesquintino/`.
-2. **Caminhos Absolutos**: O `index.html` agora usa `/src/main.tsx`, que o Vite processa corretamente durante o build.
-3. **GitHub Action**: O script de deploy foi corrigido e a dependência de cache foi removida para evitar erros de falta de `package-lock.json` (embora ele agora exista e tenha sido atualizado).
+1. **Base Path Relativo**: O `base` no `vite.config.ts` está agora como `'./'`. Isso faz com que o site funcione tanto no GitHub Pages (`/inglesquintino/`) quanto no Vercel (`/`), sem precisar mudar o código.
+2. **Caminhos no index.html**: O script é carregado via `src/main.tsx` (caminho relativo), o que resolve o erro de carregamento de recursos.
+3. **GitHub Action**: O processo de deploy automatizado continua funcionando normalmente.
 
-**O que você precisa fazer agora para ver o site funcionando:**
-1. **Push**: Envie todas as alterações para o seu GitHub:
-   ```bash
-   git add .
-   git commit -m "fix: final github pages deployment"
-   git push
-   ```
-2. **Confirme no GitHub**: Vá na aba **Actions** e veja o processo de build. Ele deve agora completar com sucesso (check verde ✅).
-3. **Link oficial**: Assim que o deploy terminar, acesse:
-   `https://lenilsonxavier-dev.github.io/inglesquintino/`
+**Dica para Vercel:**
+Ao importar no Vercel, use as configurações padrão. Ele detectará que é um projeto Vite e fará o build automaticamente.
 
-Se ainda houver algum erro, verifique na aba **Actions** qual é a mensagem de erro específica.
+**Sites Oficiais:**
+- **GitHub Pages**: `https://lenilsonxavier-dev.github.io/inglesquintino/`
+- **Vercel**: `https://inglesquintino.vercel.app/`
