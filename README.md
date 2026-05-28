@@ -9,12 +9,13 @@ Aplicação interativa para ensino de inglês desenvolvida para a EMEF Quintino 
 3. No seu repositório no GitHub, vá em **Settings > Pages**.
 4. Em **Build and deployment > Source**, certifique-se de que está selecionado **GitHub Actions**.
 
-## Por que a página está em branco? (404)
+## Por que a página estava em branco? (404) Corrigido ✅
 
-Se o erro **404** persistir, é porque a **GitHub Action falhou**. Faça o seguinte:
-1. Vá na aba **Actions** no seu repositório GitHub.
-2. Clique no último erro (X vermelho).
-3. Veja em qual passo ele parou. Geralmente é no "Build" ou "Install dependencies".
-4. Me envie o erro que aparece lá para eu corrigir o script.
+Fizemos duas correções cruciais:
+1. **GitHub Action**: Removemos a necessidade do arquivo `package-lock.json` para o cache, o que estava causando erro no build do GitHub.
+2. **Caminhos no index.html**: Alteramos o carregamento do script para `src/main.tsx` (sem a barra inicial), permitindo que o Vite entenda que deve procurar dentro da pasta `/inglesquintino/`.
 
-*Nota: O `base` no `vite.config.ts` deve ser obrigatoriamente `/inglesquintino/`.*
+**O que você precisa fazer agora:**
+1. Envie (push) as novas alterações para o seu GitHub.
+2. Vá na aba **Actions** e acompanhe o build. Ele deve ficar verde (com um check ✅).
+3. Assim que ficar verde, o seu site em `https://lenilsonxavier-dev.github.io/inglesquintino/` deverá funcionar!
