@@ -49,27 +49,45 @@ export default function InteractiveCarousel({ studentName, setStudentName }: Int
 
   return (
     <div className="w-full max-w-4xl mx-auto flex flex-col gap-4 p-2 md:p-4">
-      {/* Dynamic Mini Header */}
-      <div className="flex justify-between items-center bg-slate-800/80 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-700/80 shadow">
-        <button
-          onClick={() => jumpToSlide(0)}
-          className="flex items-center gap-1.5 text-xs text-amber-300 font-extrabold cursor-pointer hover:text-amber-200 transition"
-        >
-          <Home className="w-4 h-4" />
-          <span className="hidden sm:inline">Início</span>
-        </button>
-        
-        <div className="flex items-center gap-2">
-          <GraduationCap className="w-5 h-5 text-emerald-400" />
-          <span className="text-white text-xs font-black tracking-wide shrink-0">
-            {studentName ? `Aluno(a): ${studentName} 🎓` : 'Inglês Legal!'}
-          </span>
+      {/* Consolidated Premium Header */}
+      <header className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between bg-slate-900/90 backdrop-blur-md p-3 sm:p-4 rounded-3xl border border-slate-800 shadow-xl gap-3">
+        {/* Left Section: Class & Teacher Info */}
+        <div className="flex items-center gap-3">
+          <div className="bg-amber-400 p-2 rounded-xl text-slate-900 shadow-md shrink-0">
+            <GraduationCap className="w-5 h-5 md:w-6 md:h-6" />
+          </div>
+          <div className="text-left">
+            <span className="font-sans font-black text-xs md:text-sm tracking-tight text-white block">
+              INGLÊS LEGAL — 2026
+            </span>
+            <span className="text-[9px] md:text-xs text-slate-400 block font-bold leading-tight">
+              Prof. Lenilson (Teacher Leno) • EMEF Quintino Bocaiúva
+            </span>
+          </div>
         </div>
 
-        <div className="text-xs font-black text-slate-300">
-          Slide {activeIndex + 1} / {SLIDES_DATA.length}
+        {/* Right Section: Student Progress & Shortcuts */}
+        <div className="flex items-center justify-between sm:justify-end gap-2 md:gap-3 border-t border-slate-800/60 pt-2 sm:border-t-0 sm:pt-0">
+          <button
+            onClick={() => jumpToSlide(0)}
+            className="flex items-center gap-1 bg-slate-800 hover:bg-slate-700 text-amber-300 font-extrabold px-2.5 py-1.5 rounded-xl border border-slate-700/50 cursor-pointer transition text-[10px] md:text-xs shadow-sm active:scale-95"
+          >
+            <Home className="w-3.5 h-3.5" />
+            <span>Início</span>
+          </button>
+          
+          <div className="flex items-center gap-1.5 bg-indigo-950/60 border border-indigo-500/20 px-2.5 py-1.5 rounded-xl text-[10px] md:text-xs">
+            <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse shrink-0" />
+            <span className="text-indigo-200 font-extrabold truncate max-w-[120px] sm:max-w-[150px]">
+              {studentName ? `Aluno(a): ${studentName} 🎓` : 'Inglês Legal!'}
+            </span>
+          </div>
+
+          <div className="text-[10px] md:text-xs font-black bg-slate-800 px-2.5 py-1.5 rounded-xl border border-slate-750 text-slate-300 shrink-0">
+            Slide {activeIndex + 1} / {SLIDES_DATA.length}
+          </div>
         </div>
-      </div>
+      </header>
 
       {/* Main Active Slide Display Frame with Transitions */}
       <div className="h-[520px] md:h-[580px] bg-slate-950 rounded-3xl overflow-hidden shadow-2xl relative border-4 border-slate-700/60 transition-all flex flex-col">
