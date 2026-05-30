@@ -9,7 +9,7 @@ import { Award, CheckCircle, AlertTriangle, RefreshCw, Printer, Volume2, Sparkle
 import { QuizQuestion } from '../types';
 import { QUIZ_QUESTIONS } from '../data';
 import { speakEnglish } from '../utils/speech';
-import mascotImage from '../assets/images/teacher_leno_mascot_1779979514957.png';
+const mascotImage = 'https://i.imgur.com/JOLSIF3.png';
 
 interface QuizGameProps {
   studentName: string;

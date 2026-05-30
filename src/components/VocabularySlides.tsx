@@ -443,7 +443,12 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                 <div className="flex flex-col gap-3 mt-1">
                   {/* Leno Question */}
                   <div className="flex gap-2 items-start">
-                    <span className="text-2xl pt-1">🦉</span>
+                    <img 
+                      src="https://i.imgur.com/JOLSIF3.png" 
+                      alt="Leno Owl" 
+                      className="w-8 h-8 object-contain rounded-full bg-slate-800 border-2 border-amber-300 shadow-md shrink-0 mt-0.5" 
+                      referrerPolicy="no-referrer"
+                    />
                     <div className="bg-slate-800 p-3 rounded-2xl rounded-tl-none border border-slate-700 max-w-[85%] text-xs md:text-sm shadow-md">
                       <p className="font-black text-indigo-300 text-left">Teacher Leno:</p>
                       <p className="text-white mt-1">

@@ -6,7 +6,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, ArrowRight } from 'lucide-react';
-import mascotImage from '../assets/images/teacher_leno_mascot_1779979514957.png';
+const mascotImage = 'https://i.imgur.com/JOLSIF3.png';
 
 interface WelcomeSlideProps {
   studentName: string;
@@ -68,7 +68,7 @@ export default function WelcomeSlide({ studentName, setStudentName, onStart }: W
           referrerPolicy="no-referrer"
         />
         <div className="absolute bottom-0 right-2 bg-white text-slate-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-lg border-2 border-orange-400">
-          Hi! I am Leno Owl! 🦉
+          Hi! I am Quinti! 🦉
         </div>
       </motion.div>
 
