@@ -1,4 +1,4 @@
-# Inglês Legal - Teacher Leno
+# Quinti - Teacher Leno
 
 Aplicação interativa para ensino de inglês desenvolvida para a EMEF Quintino Bocaiúva - Osasco.
 

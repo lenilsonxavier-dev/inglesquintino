@@ -1,6 +1,6 @@
 {
-  "name": "Inglês Legal",
-  "description": "Uma jornada interativa, lúdica e cheia de cores para crianças de 10 anos aprenderem inglês brincando com o Teacher Leno da EMEF Quintino Bocaiúva, Osasco.",
+  "name": "Quinti",
+  "description": "Uma jornada interativa, lúdica e cheia de cores para crianças de 10 anos aprenderem inglês brincando com o Quinti e Teacher Leno da EMEF Quintino Bocaiúva, Osasco.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

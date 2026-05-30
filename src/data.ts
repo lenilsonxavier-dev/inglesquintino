@@ -9,7 +9,7 @@ export const SLIDES_DATA: InteractiveSlide[] = [
   {
     id: 'welcome',
     type: 'welcome',
-    title: 'Inglês Legal! 🌟',
+    title: 'Quinti! 🌟',
     subtitle: 'Sorria, você está aprendendo! 😄',
     description: 'Boas-vindas à nossa English Class!',
     colorTheme: 'from-amber-400 to-orange-500',
@@ -101,7 +101,7 @@ export const SLIDES_DATA: InteractiveSlide[] = [
     type: 'values',
     title: '6. Values for Life ❤️',
     subtitle: 'Espalhe Bons Sentimentos! ✨',
-    description: 'Os valores do Inglês Legal! Desembaralhe as letras destes sentimentos!',
+    description: 'Os valores do Quinti! Desembaralhe as letras destes sentimentos!',
     colorTheme: 'from-red-400 to-rose-500',
     vocabList: [
       { english: 'Love', portuguese: 'Amor', icon: '❤️' },

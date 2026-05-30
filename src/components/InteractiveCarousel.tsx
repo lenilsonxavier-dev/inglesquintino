@@ -58,7 +58,7 @@ export default function InteractiveCarousel({ studentName, setStudentName }: Int
           </div>
           <div className="text-left">
             <span className="font-sans font-black text-xs md:text-sm tracking-tight text-white block">
-              INGLÊS LEGAL — 2026
+              QUINTI — 2026
             </span>
             <span className="text-[9px] md:text-xs text-slate-400 block font-bold leading-tight">
               Prof. Lenilson (Teacher Leno) • EMEF Quintino Bocaiúva
@@ -79,7 +79,7 @@ export default function InteractiveCarousel({ studentName, setStudentName }: Int
           <div className="flex items-center gap-1.5 bg-indigo-950/60 border border-indigo-500/20 px-2.5 py-1.5 rounded-xl text-[10px] md:text-xs">
             <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse shrink-0" />
             <span className="text-indigo-200 font-extrabold truncate max-w-[120px] sm:max-w-[150px]">
-              {studentName ? `Aluno(a): ${studentName} 🎓` : 'Inglês Legal!'}
+              {studentName ? `Aluno(a): ${studentName} 🎓` : 'Quinti!'}
             </span>
           </div>
 

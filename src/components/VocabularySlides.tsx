@@ -884,7 +884,7 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
             <div className="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 flex flex-col justify-between h-full">
               <div>
                 <h3 className="text-sm font-bold text-slate-400 mb-2 text-center uppercase tracking-wider">
-                  ✍️ Monte o Valor do Inglês Legal
+                  ✍️ Monte o Valor do Quinti
                 </h3>
                 
                 {slide.vocabList && slide.vocabList[currentValueIndex] && (

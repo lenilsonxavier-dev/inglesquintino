@@ -46,7 +46,7 @@ export default function WelcomeSlide({ studentName, setStudentName, onStart }: W
           🏫 EMEF Quintino Bocaiúva — Osasco
         </span>
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mt-1.5 md:mt-2.5 drop-shadow-md tracking-tight">
-          Inglês Legal! 🌟
+          Quinti! 🌟
         </h1>
         <p className="text-amber-100 font-bold text-xs md:text-sm mt-1 bg-black/10 inline-block px-3 py-0.5 rounded-full backdrop-blur-sm">
           "Sorria, você está aprendendo!" 😄

@@ -240,7 +240,7 @@ export default function QuizGame({ studentName, onResetAll }: QuizGameProps) {
                 Parabéns, {studentName}! 🎉
               </h2>
               <p className="text-xs text-slate-300">
-                Você concluiu todos os desafios do Inglês Legal!
+                Você concluiu todos os desafios do Quinti!
               </p>
             </div>
 
@@ -266,7 +266,7 @@ export default function QuizGame({ studentName, onResetAll }: QuizGameProps) {
               <p className="text-xl font-extrabold text-blue-600 underline decoration-amber-400 my-1">{studentName || 'Super Aluno'}</p>
               
               <p className="text-[10px] md:text-xs text-slate-600 px-3 py-1 bg-slate-100 rounded-lg inline-block leading-normal">
-                Pelo excelente desempenho nos jogos interativos do **Inglês Legal** em 2026!
+                Pelo excelente desempenho nos jogos interativos do **Quinti** em 2026!
                 Demonstrou dedicação no vocabulário de saudações, cores, animais, sentimentos e valores.
               </p>
 
