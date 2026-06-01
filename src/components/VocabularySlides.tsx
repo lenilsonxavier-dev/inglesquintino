@@ -392,10 +392,10 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
       
       {/* Slide Info & Title */}
       <div className="mb-4 text-center">
-        <h2 className="text-xl md:text-2xl font-black text-amber-300 drop-shadow flex items-center justify-center gap-2">
+        <h2 className="text-2xl md:text-3xl font-black text-amber-300 drop-shadow flex items-center justify-center gap-2">
           {slide.title}
         </h2>
-        <p className="text-xs md:text-sm text-slate-300 mt-1">{slide.description}</p>
+        <p className="text-sm md:text-base text-slate-300 mt-1">{slide.description}</p>
       </div>
 
       <div className="flex-1 min-h-[300px]">
@@ -415,18 +415,18 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleSpeak(vocab.english, vocab)}
                     key={i}
-                    className={`flex items-center gap-2 p-3 text-left rounded-xl transition-all border ${
+                    className={`flex items-center gap-3 p-3.5 text-left rounded-xl transition-all border-2 ${
                       activeWord?.english === vocab.english && isSpeaking
                         ? 'bg-blue-500 border-blue-300 animate-pulse'
                         : 'bg-slate-700/50 hover:bg-slate-700 border-slate-600'
                     }`}
                   >
-                    <span className="text-2xl">{vocab.icon}</span>
+                    <span className="text-3xl">{vocab.icon}</span>
                     <div className="flex-1 min-w-0">
-                      <div className="font-extrabold text-sm text-white truncate">{vocab.english}</div>
-                      <div className="text-[10px] text-slate-300 truncate">{vocab.portuguese}</div>
+                      <div className="font-extrabold text-base md:text-lg text-white truncate">{vocab.english}</div>
+                      <div className="text-xs md:text-sm text-slate-300 truncate">{vocab.portuguese}</div>
                     </div>
-                    <Volume2 className="w-4 h-4 text-slate-400 shrink-0" />
+                    <Volume2 className="w-5 h-5 text-slate-400 shrink-0" />
                   </motion.button>
                 ))}
               </div>
@@ -436,7 +436,7 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
             <div className="bg-gradient-to-tr from-indigo-900 to-indigo-950 p-4 rounded-2xl border-2 border-indigo-400/30 flex flex-col justify-between h-full min-h-[250px]">
               <div>
                 <h3 className="text-xs font-black tracking-widest text-indigo-300 uppercase mb-3 text-center">
-                  💬 Desafio: Converse com a Coruja Leno!
+                  💬 Desafio: converse com o Quinti!
                 </h3>
                 
                 {/* Dialogue Area */}
@@ -450,9 +450,9 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                       referrerPolicy="no-referrer"
                     />
                     <div className="bg-slate-800 p-3 rounded-2xl rounded-tl-none border border-slate-700 max-w-[85%] text-xs md:text-sm shadow-md">
-                      <p className="font-black text-indigo-300 text-left">Teacher Leno:</p>
+                      <p className="font-black text-indigo-300 text-left">Quinti:</p>
                       <p className="text-white mt-1">
-                        {dialStep === 0 ? "Hello Kid! What is your name?" : "Excellent! Now tell me, how do you say 'Thank you' in English when somebody helps you?"}
+                        {dialStep === 0 ? "Hello Friend! What is your name?" : "Excellent! Now tell me, how do you say 'Thank you' in English when somebody helps you?"}
                       </p>
                     </div>
                   </div>
@@ -462,7 +462,7 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                     <motion.div 
                       initial={{ scale: 0.8 }}
                       animate={{ scale: 1 }}
-                      className="text-center text-xs text-amber-300 font-bold bg-white/5 py-1.5 px-3 rounded-full border border-amber-500/20 shadow-sm"
+                      className="text-center text-sm text-amber-300 font-bold bg-white/5 py-2 px-3.5 rounded-full border border-amber-500/20 shadow-sm"
                     >
                       {greetingsFeedback}
                     </motion.div>
@@ -477,15 +477,15 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                     <button
                       id="opt-dial-name-success"
                       onClick={() => handleGreetingsOption(`My name is ${studentName || 'Kid'}`)}
-                      className="w-full text-slate-800 font-extrabold bg-amber-400 hover:bg-amber-300 p-2.5 rounded-xl text-xs md:text-sm border-b-4 border-amber-600 transition active:scale-95 text-left flex items-center justify-between"
+                      className="w-full text-slate-800 font-extrabold bg-amber-400 hover:bg-amber-300 p-3.5 rounded-xl text-sm md:text-base border-b-4 border-amber-600 transition active:scale-95 text-left flex items-center justify-between"
                     >
                       <span>💬 Hello! My name is <b>{studentName || 'Kid'}</b>.</span>
-                      <CheckCircle className="w-4 h-4" />
+                      <CheckCircle className="w-5 h-5 shrink-0" />
                     </button>
                     <button
                       id="opt-dial-name-fail"
                       onClick={() => handleGreetingsOption('Thank you!')}
-                      className="w-full text-white font-extrabold bg-slate-700 hover:bg-slate-600 p-2.5 rounded-xl text-xs md:text-sm border-b-4 border-slate-900 transition active:scale-95 text-left"
+                      className="w-full text-white font-extrabold bg-slate-700 hover:bg-slate-600 p-3.5 rounded-xl text-sm md:text-base border-b-4 border-slate-900 transition active:scale-95 text-left"
                     >
                       💬 Thank you!
                     </button>
@@ -495,22 +495,22 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                     <button
                       id="opt-dial-thanks-success"
                       onClick={() => handleGreetingsOption('Thank you!')}
-                      className="w-full text-slate-800 font-extrabold bg-amber-400 hover:bg-amber-300 p-2.5 rounded-xl text-xs md:text-sm border-b-4 border-amber-600 transition active:scale-95 text-left flex items-center justify-between"
+                      className="w-full text-slate-800 font-extrabold bg-amber-400 hover:bg-amber-300 p-3.5 rounded-xl text-sm md:text-base border-b-4 border-amber-600 transition active:scale-95 text-left flex items-center justify-between"
                     >
                       <span>💬 Thank you!</span>
-                      <CheckCircle className="w-4 h-4" />
+                      <CheckCircle className="w-5 h-5 shrink-0" />
                     </button>
                     <button
                       id="opt-dial-thanks-fail"
                       onClick={() => handleGreetingsOption('Goodbye!')}
-                      className="w-full text-white font-extrabold bg-slate-700 hover:bg-slate-600 p-2.5 rounded-xl text-xs md:text-sm border-b-4 border-slate-900 transition active:scale-95 text-left"
+                      className="w-full text-white font-extrabold bg-slate-700 hover:bg-slate-650 p-3.5 rounded-xl text-sm md:text-base border-b-4 border-slate-900 transition active:scale-95 text-left"
                     >
                       💬 Goodbye!
                     </button>
                   </>
                 )}
                 {greetingsCompleted && (
-                  <div className="bg-emerald-500/20 text-emerald-300 text-xs text-center font-extrabold py-2 rounded-lg border border-emerald-500 mt-2">
+                  <div className="bg-emerald-500/20 text-emerald-300 text-sm md:text-base text-center font-extrabold py-2.5 rounded-lg border border-emerald-500 mt-2">
                     ✓ Saudações Completadas! 🦉✨ Prossiga para a próxima aventura!
                   </div>
                 )}
@@ -530,7 +530,7 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                 <h3 className="text-sm font-bold text-slate-400 mb-3 text-center uppercase tracking-wider">
                   🎨 Paleta de Baldes de Tinta Mágica
                 </h3>
-                <p className="text-xs text-slate-300 text-center mb-4">
+                <p className="text-sm md:text-base text-slate-300 text-center mb-4">
                   Selecione uma cor e depois clique nas partes do Teacher Leno para pintá-lo!
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -547,13 +547,13 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                       <div className={`w-8 h-8 rounded-full ${vocab.color} shadow-inner flex items-center justify-center border border-white/20`}>
                         <span className="text-base font-bold text-white drop-shadow">🖌️</span>
                       </div>
-                      <span className="font-extrabold text-xs text-white mt-1.5">{vocab.english}</span>
-                      <span className="text-[10px] text-slate-300">{vocab.portuguese}</span>
+                      <span className="font-extrabold text-sm md:text-base text-white mt-1.5">{vocab.english}</span>
+                      <span className="text-xs md:text-sm text-slate-300">{vocab.portuguese}</span>
                     </button>
                   ))}
                 </div>
               </div>
-              <div className="bg-slate-700/40 p-2 rounded-xl border border-slate-600 text-center text-xs mt-3">
+              <div className="bg-slate-700/40 p-2.5 rounded-xl border border-slate-600 text-center text-sm mt-3">
                 Cor selecionada: <span className="font-extrabold text-amber-300">{selectedColorName}</span> • Toque no elemento que quer pintar ao lado!
               </div>
             </div>
@@ -628,22 +628,22 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
 
                 {/* Target Box Notification */}
                 {targetSchoolObject && !schoolCompleted ? (
-                  <div className="bg-slate-900 p-3 rounded-xl border-l-4 border-amber-400 mb-4 flex items-center justify-between shadow-inner">
-                    <div className="text-xs">
-                      <p className="text-slate-400 font-bold uppercase tracking-widest text-[9px]">Ache e Toque no:</p>
-                      <p className="text-amber-300 text-lg font-black">{targetSchoolObject.english}</p>
-                      <p className="text-slate-400">Em Português: {targetSchoolObject.portuguese}</p>
+                  <div className="bg-slate-900 p-3.5 rounded-xl border-l-4 border-amber-400 mb-4 flex items-center justify-between shadow-inner">
+                    <div className="text-sm">
+                      <p className="text-slate-400 font-extrabold uppercase tracking-widest text-xs">Ache e Toque no:</p>
+                      <p className="text-amber-300 text-lg md:text-xl font-black mt-0.5">{targetSchoolObject.english}</p>
+                      <p className="text-slate-350 text-xs md:text-sm">Em Português: {targetSchoolObject.portuguese}</p>
                     </div>
                     <button 
                       onClick={() => handleSpeak(targetSchoolObject.english)}
-                      className="bg-slate-800 border hover:bg-slate-700 text-white p-2 rounded-full cursor-pointer"
+                      className="bg-slate-800 border-2 border-slate-700 hover:bg-slate-700 text-white p-2.5 rounded-full cursor-pointer transition active:scale-90"
                     >
                       <Volume2 className="w-5 h-5 text-amber-300" />
                     </button>
                   </div>
                 ) : (
-                  <div className="bg-emerald-800/30 p-3 rounded-xl border border-emerald-500 mb-4 text-center">
-                    <p className="text-emerald-400 font-bold text-sm">🎉 Tudo Organizado e Guardado!</p>
+                  <div className="bg-emerald-800/30 p-3.5 rounded-xl border border-emerald-500 mb-4 text-center">
+                    <p className="text-emerald-400 font-bold text-sm md:text-base">🎉 Tudo Organizado e Guardado!</p>
                   </div>
                 )}
 
@@ -656,14 +656,14 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                         key={i}
                         onClick={() => handleSchoolItemClick(vocab)}
                         disabled={isPacked || schoolCompleted}
-                        className={`p-3 rounded-xl transition flex flex-col items-center justify-center relative border-b-4 ${
+                        className={`p-3.5 rounded-xl transition flex flex-col items-center justify-center relative border-b-4 ${
                           isPacked
                             ? 'bg-slate-900/60 border-slate-900 opacity-30 cursor-not-allowed'
                             : 'bg-slate-700/70 border-slate-900 hover:bg-slate-650'
                         }`}
                       >
                         <span className="text-3xl">{vocab.icon}</span>
-                        <span className="font-extrabold text-xs text-white mt-1">{vocab.english}</span>
+                        <span className="font-extrabold text-sm md:text-base text-white mt-1.5 truncate max-w-full">{vocab.english}</span>
                         {isPacked && (
                           <div className="absolute top-1 right-1 bg-green-500 rounded-full p-0.5 text-white">
                             <CheckCircle className="w-3 h-3" />
@@ -676,7 +676,7 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
               </div>
 
               {/* Feedbacks */}
-              <div className="text-xs text-center font-bold text-amber-200 mt-2 bg-black/15 py-1.5 px-2 rounded-lg">
+              <div className="text-sm text-center font-bold text-amber-200 mt-2 bg-black/15 py-2 px-3 rounded-lg">
                 {schoolFeedback || 'Aguardando você guardar materiais na mochila...'}
               </div>
             </div>
@@ -720,11 +720,11 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                 
                 {/* Animal sound projection */}
                 <div className="bg-slate-900 p-4 rounded-2xl border border-slate-700 mb-4 flex flex-col items-center text-center shadow-lg relative overflow-hidden">
-                  <div className="absolute top-1 left-2 text-xs text-slate-500 font-bold uppercase">Clue / Pista:</div>
-                  <div className="text-3xl text-emerald-400 font-extrabold animate-bounce mt-2">
+                  <div className="absolute top-1 left-2 text-xs text-slate-500 font-extrabold uppercase">Clue / Pista:</div>
+                  <div className="text-4xl text-emerald-400 font-black animate-bounce mt-2">
                     "{activeAnimalSound}"
                   </div>
-                  <p className="text-xs text-slate-300 font-bold mt-2 bg-white/5 py-1 px-3 rounded-full">
+                  <p className="text-sm text-slate-200 font-bold mt-2 bg-white/5 py-1.5 px-4 rounded-full">
                     {animalHint}
                   </p>
                 </div>
@@ -738,21 +738,21 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                         key={i}
                         onClick={() => handleAnimalSelect(vocab)}
                         disabled={isPassed || animalsCompleted}
-                        className={`p-3 rounded-xl border-b-4 text-center transition flex flex-col items-center ${
+                        className={`p-3.5 rounded-xl border-b-4 text-center transition flex flex-col items-center ${
                           isPassed
                             ? 'bg-slate-900/40 border-slate-950 opacity-45 cursor-not-allowed'
                             : 'bg-slate-700 hover:bg-slate-650 border-slate-900'
                         }`}
                       >
                         <span className="text-3xl">{vocab.icon}</span>
-                        <span className="font-extrabold text-xs text-white mt-1">{vocab.english}</span>
-                        <span className="text-[9px] text-slate-400">{vocab.portuguese}</span>
+                        <span className="font-extrabold text-sm md:text-base text-white mt-1.5">{vocab.english}</span>
+                        <span className="text-xs text-slate-350">{vocab.portuguese}</span>
                       </button>
                     );
                   })}
                 </div>
               </div>
-              <div className="text-[10px] text-center text-slate-400 italic mt-3">
+              <div className="text-xs md:text-sm text-center text-slate-300 font-medium italic mt-3">
                 Acerte pelo menos 3 animais para completar a fase dos Animais!
               </div>
             </div>
@@ -809,24 +809,24 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
             <div className="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 flex flex-col justify-between h-full">
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="bg-orange-500/20 text-orange-300 text-[10px] font-black uppercase px-2 py-0.5 rounded-full">
+                  <span className="bg-orange-500/20 text-orange-300 text-xs font-black uppercase px-2.5 py-1 rounded-full">
                     Situação {currentScenarioIndex + 1} de {scenarioCards.length}
                   </span>
-                  <span className="text-xs text-amber-300 font-bold">Acertos: {feelingsScore}</span>
+                  <span className="text-sm text-amber-300 font-bold">Acertos: {feelingsScore}</span>
                 </div>
                 
-                <h3 className="text-xs font-bold text-slate-400 mb-2 uppercase tracking-wide">
+                <h3 className="text-xs font-black text-slate-400 mb-2 uppercase tracking-wide">
                   🎭 O cenário se passa na sua mente:
                 </h3>
 
                 <div className="bg-slate-900 p-4 rounded-xl border-l-4 border-rose-500 min-h-[90px] flex items-center justify-center text-center shadow-inner">
-                  <p className="text-white text-xs md:text-sm font-bold leading-relaxed">
+                  <p className="text-white text-sm md:text-base font-bold leading-relaxed">
                     {scenarioCards[currentScenarioIndex].text}
                   </p>
                 </div>
 
                 {feelingsFeedback && (
-                  <div className={`mt-3 p-2 text-center rounded-lg text-xs font-extrabold ${
+                  <div className={`mt-3 p-2 text-center rounded-lg text-sm font-extrabold ${
                     feelingsFeedback.includes('Exatamente') || feelingsFeedback.includes('Sensacional')
                       ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
                       : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
@@ -836,7 +836,7 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                 )}
               </div>
 
-              <div className="text-[10px] text-slate-400 italic mt-3 text-center">
+              <div className="text-xs md:text-sm text-slate-350 font-medium italic mt-3 text-center">
                 Leia o cenário e clique no balão de sentimentos que mais combina à direita!
               </div>
             </div>
@@ -854,11 +854,11 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                     onClick={() => handleFeelingSelect(vocab.english)}
                     disabled={feelingsCompleted}
                     key={i}
-                    className="bg-slate-800 hover:bg-slate-700/80 text-white rounded-xl p-2.5 border border-slate-650 shadow flex flex-col items-center justify-center transition active:scale-95"
+                    className="bg-slate-800 hover:bg-slate-700/80 text-white rounded-xl p-3 border border-slate-650 shadow flex flex-col items-center justify-center transition active:scale-95"
                   >
                     <span className="text-3xl select-none animate-pulse">{vocab.icon}</span>
-                    <span className="font-extrabold text-xs text-white mt-1">{vocab.english}</span>
-                    <span className="text-[10px] text-slate-400">{vocab.portuguese}</span>
+                    <span className="font-extrabold text-sm md:text-base text-white mt-1">{vocab.english}</span>
+                    <span className="text-xs text-slate-300">{vocab.portuguese}</span>
                   </motion.button>
                 ))}
               </div>
@@ -866,7 +866,7 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
               {feelingsCompleted && (
                 <button
                   onClick={() => onComplete()}
-                  className="w-full bg-emerald-500 hover:bg-emerald-400 font-extrabold text-xs py-2 rounded-xl text-white border-b-4 border-emerald-700 mt-3"
+                  className="w-full bg-emerald-500 hover:bg-emerald-400 font-extrabold text-sm md:text-base py-3 rounded-xl text-white border-b-4 border-emerald-700 mt-3"
                 >
                   Continuar para os Valores! ♥️
                 </button>
@@ -888,16 +888,16 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                 </h3>
                 
                 {slide.vocabList && slide.vocabList[currentValueIndex] && (
-                  <div className="bg-slate-900 p-3 rounded-xl border border-slate-750 mb-3 text-center">
-                    <p className="text-slate-400 text-[10px] font-bold uppercase">Palavra em Português:</p>
-                    <p className="text-teal-400 text-lg font-black">{slide.vocabList[currentValueIndex].portuguese} {slide.vocabList[currentValueIndex].icon}</p>
+                  <div className="bg-slate-900 p-3.5 rounded-xl border border-slate-750 mb-3 text-center">
+                    <p className="text-slate-400 text-xs md:text-sm font-bold uppercase">Palavra em Português:</p>
+                    <p className="text-teal-400 text-lg md:text-xl font-black">{slide.vocabList[currentValueIndex].portuguese} {slide.vocabList[currentValueIndex].icon}</p>
                   </div>
                 )}
 
                 {/* Spell area (bubbly) */}
                 <div className="flex justify-center gap-1.5 h-12 items-center bg-slate-900/60 rounded-xl mb-3 border-2 border-dashed border-slate-600">
                   {userValueSpelling.length === 0 ? (
-                    <span className="text-xs text-slate-500 italic font-bold">Toque nas esferas abaixo para soletrar...</span>
+                    <span className="text-sm md:text-base text-slate-400 italic font-bold">Toque nas esferas abaixo para soletrar...</span>
                   ) : (
                     userValueSpelling.map((letter, idx) => (
                       <span key={idx} className="bg-teal-500 text-slate-900 font-black text-lg w-8 h-8 flex items-center justify-center rounded-lg shadow-sm border border-white/20 select-none">
@@ -924,9 +924,9 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
               {/* Reset current spelling button */}
               <button
                 onClick={() => setupValueScrambler(currentValueIndex)}
-                className="mt-3 flex items-center justify-center gap-1 text-slate-400 hover:text-white text-xs font-bold bg-white/5 py-1.5 px-3 rounded-full border border-slate-700 w-fit mx-auto"
+                className="mt-3 flex items-center justify-center gap-2 text-slate-350 hover:text-white text-sm font-extrabold bg-white/5 py-2 px-4 rounded-full border border-slate-700 w-fit mx-auto transition active:scale-95"
               >
-                <RotateCcw className="w-3.5 h-3.5" />
+                <RotateCcw className="w-4 h-4" />
                 Refazer Palavra
               </button>
             </div>
@@ -934,7 +934,7 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
             {/* Value cards display list */}
             <div className="bg-gradient-to-tr from-rose-950 to-red-950 p-4 rounded-2xl border-2 border-red-400/30 flex flex-col justify-between h-full min-h-[250px]">
               <div>
-                <h3 className="text-xs font-black tracking-widest text-red-200 uppercase mb-3 text-center">
+                <h3 className="text-sm font-black tracking-widest text-red-200 uppercase mb-3 text-center">
                   ❤️ Valores do Professor Leno Unidoss:
                 </h3>
 
@@ -944,21 +944,21 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                     return (
                       <div
                         key={i}
-                        className={`p-2 rounded-xl flex items-center justify-between text-xs transition border ${
+                        className={`p-2.5 rounded-xl flex items-center justify-between transition border ${
                           solved
                             ? 'bg-rose-500/20 border-rose-400/50 text-white'
                             : 'bg-slate-800/80 border-slate-750 text-slate-500'
                         }`}
                       >
-                        <div className="flex items-center gap-2">
-                          <span className="text-lg">{vocab.icon}</span>
-                          <div>
-                            <p className="font-extrabold">{vocab.english}</p>
-                            <p className="text-[10px] text-slate-400">{vocab.portuguese}</p>
+                        <div className="flex items-center gap-3">
+                          <span className="text-xl">{vocab.icon}</span>
+                          <div className="text-left">
+                            <p className="font-extrabold text-sm md:text-base">{vocab.english}</p>
+                            <p className="text-xs md:text-sm text-slate-350">{vocab.portuguese}</p>
                           </div>
                         </div>
                         {solved && (
-                          <span className="text-[9px] bg-emerald-500 text-slate-900 font-extrabold px-1.5 py-0.5 rounded-full">
+                          <span className="text-xs bg-emerald-500 text-slate-900 font-black px-2 py-1 rounded-full uppercase shrink-0">
                             ✓ Resolvido!
                           </span>
                         )}
@@ -969,7 +969,7 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
               </div>
 
               {valuesFeedback && (
-                <div className="text-xs text-center font-extrabold text-amber-200 bg-black/30 p-2 rounded-xl mt-3">
+                <div className="text-sm text-center font-black text-amber-200 bg-black/30 p-2.5 rounded-xl mt-3">
                   {valuesFeedback}
                 </div>
               )}
@@ -977,7 +977,7 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
               {valuesCompleted && (
                 <button
                   onClick={() => onComplete()}
-                  className="w-full bg-emerald-500 hover:bg-emerald-400 font-extrabold text-xs py-2 rounded-xl text-white border-b-4 border-emerald-700 mt-3"
+                  className="w-full bg-emerald-500 hover:bg-emerald-400 font-extrabold text-sm md:text-base py-3 rounded-xl text-white border-b-4 border-emerald-700 mt-3 active:scale-95 transition"
                 >
                   Ir para o Desafio Final! 🎉🎮
                 </button>
