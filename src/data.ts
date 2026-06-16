@@ -61,7 +61,7 @@ export const SLIDES_DATA: InteractiveSlide[] = [
       { english: 'Eraser', portuguese: 'Borracha', icon: '🧼' },
       { english: 'Ruler', portuguese: 'Régua', icon: '📏' },
       { english: 'Pencil case', portuguese: 'Estojo', icon: '👝' },
-      { english: 'Backpack', portuguese: 'Mochila', icon: '🎒' },
+      { english: 'Notebook', portuguese: 'Caderno', icon: '📓' },
     ],
   },
   {

@@ -608,23 +608,27 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
                   {/* Beak */}
                   <polygon points="50,42 45,51 55,51" className={`${owlColors.beak} stroke-slate-400 stroke-[1.5] cursor-pointer`} onClick={() => handlePaintPart('beak')} />
                 </svg>
-                
-                {colorsCompleted && (
-                  <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center p-2 text-center backdrop-blur-sm">
-                    <Sparkles className="w-10 h-10 text-yellow-300 animate-spin" />
-                    <span className="font-extrabold text-sm text-yellow-250 mt-1">Uau, ficou lindo! 🦉🌈</span>
-                    <button
-                       onClick={() => onComplete()}
-                      className="mt-2 bg-emerald-500 hover:bg-emerald-400 font-bold text-xs text-white px-4 py-2 rounded-full shadow border-b-2 border-emerald-700 transition active:scale-95 cursor-pointer"
-                    >
-                      Ir para Mochila!
-                    </button>
+              </div>
+
+              {colorsCompleted ? (
+                <div className="mt-4 flex flex-col items-center gap-2">
+                  <div className="flex items-center gap-1.5 bg-emerald-500/20 text-emerald-300 font-extrabold text-xs md:text-sm px-3.5 py-1.5 rounded-full border border-emerald-500/35">
+                    <Sparkles className="w-4 h-4 text-yellow-300 animate-pulse shrink-0" />
+                    <span>Uau, ficou lindo! 🦉🌈</span>
                   </div>
-                )}
-              </div>
-              <div className="text-xs text-slate-300 mt-2.5 font-bold italic text-center">
-                Dica: Toque na cabeça, barriga, asas, óculos ou pés do Quinti para colorir!
-              </div>
+                  <button
+                    id="btn-goto-backpack"
+                    onClick={() => onComplete()}
+                    className="bg-emerald-500 hover:bg-emerald-400 font-extrabold text-sm md:text-base text-white px-8 py-3.5 rounded-xl shadow-lg border-b-4 border-emerald-700 transition active:scale-95 cursor-pointer flex items-center gap-2"
+                  >
+                    Ir para Mochila! 🎒
+                  </button>
+                </div>
+              ) : (
+                <div className="text-xs text-slate-300 mt-2.5 font-bold italic text-center">
+                  Dica: Toque na cabeça, barriga, asas, óculos ou pés do Quinti para colorir!
+                </div>
+              )}
             </div>
           </div>
         )}
