@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { ExternalLink, Download, BookOpen, Presentation } from 'lucide-react';
+import { ExternalLink, BookOpen, Presentation } from 'lucide-react';
 import { InteractiveSlide } from '../types';
 
 interface AulasSlideProps {
@@ -31,51 +31,36 @@ export default function AulasSlide({ slide }: AulasSlideProps) {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto w-full">
-        {/* Card 1: Visualizar no Site */}
+      <div className="flex-1 flex items-center justify-center max-w-xl mx-auto w-full">
+        {/* Centered Single Portal Card */}
         <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.1 }}
           whileHover={{ y: -5, scale: 1.02 }}
-          className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 flex flex-col items-center text-center group"
+          className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 flex flex-col items-center text-center group w-full shadow-2xl"
         >
-          <div className="bg-blue-400/30 p-3 rounded-xl mb-4 group-hover:bg-blue-400/50 transition-colors">
-            <Presentation className="w-8 h-8 text-white" />
+          <div className="bg-amber-400/30 p-4 rounded-2xl mb-5 group-hover:bg-amber-400/50 transition-colors">
+            <Presentation className="w-10 h-10 text-amber-300" />
           </div>
-          <h3 className="text-xl font-bold mb-2">Visualizar Slides</h3>
-          <p className="text-white/70 text-sm mb-6">Acesse o portal de aulas para ver todos os slides online.</p>
+          <h3 className="text-2xl font-black mb-3 text-amber-300 drop-shadow">Abrir o Portal</h3>
+          <p className="text-white/80 text-sm md:text-base mb-8 max-w-sm leading-relaxed">
+            Acesse o conteúdo completo de <b>Slides</b> e o <b>Livro do Estudante</b> para estudar e acompanhar todas as aulas com o Teacher Leno! 🎒📖✨
+          </p>
           <a
             href={aulasUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-auto w-full bg-white text-blue-600 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-blue-50 transition shadow-lg"
+            className="w-full bg-amber-400 text-slate-950 font-extrabold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 hover:bg-amber-300 active:scale-95 transition shadow-xl border-b-4 border-amber-600 text-base md:text-lg cursor-pointer"
           >
-            Abrir Portal <ExternalLink className="w-4 h-4" />
-          </a>
-        </motion.div>
-
-        {/* Card 2: Download */}
-        <motion.div
-          whileHover={{ y: -5, scale: 1.02 }}
-          className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 flex flex-col items-center text-center group"
-        >
-          <div className="bg-cyan-400/30 p-3 rounded-xl mb-4 group-hover:bg-cyan-400/50 transition-colors">
-            <Download className="w-8 h-8 text-white" />
-          </div>
-          <h3 className="text-xl font-bold mb-2">Baixar Material</h3>
-          <p className="text-white/70 text-sm mb-6">Baixe os arquivos para estudar mesmo sem internet.</p>
-          <a
-            href={aulasUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-auto w-full bg-cyan-500 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-cyan-400 transition shadow-lg border-b-4 border-cyan-700"
-          >
-            Download Slides <Download className="w-4 h-4" />
+            Abrir o Portal: Slides e Livro do Estudante <ExternalLink className="w-5 h-5 shrink-0" />
           </a>
         </motion.div>
       </div>
 
-      <div className="mt-auto text-center">
-        <p className="text-white/60 text-[10px] md:text-xs">
-          Nota: O download é feito através do portal oficial no Google Sites.
+      <div className="mt-8 text-center">
+        <p className="text-white/60 text-xs font-medium">
+          Acesso seguro e direto para o portal oficial do Google Sites.
         </p>
       </div>
     </div>

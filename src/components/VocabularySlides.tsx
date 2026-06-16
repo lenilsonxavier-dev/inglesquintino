@@ -26,16 +26,17 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
   const [greetingsFeedback, setGreetingsFeedback] = useState('');
 
   // --- 2. COLORS PAINTING GAME STATE ---
-  const [selectedColor, setSelectedColor] = useState<string>('bg-slate-300');
-  const [selectedColorName, setSelectedColorName] = useState<string>('Cinza');
+  const [selectedColor, setSelectedColor] = useState<string>('bg-slate-350');
+  const [selectedColorName, setSelectedColorName] = useState<string>('Gris');
   const [owlColors, setOwlColors] = useState<{ [key: string]: string }>({
-    head: 'fill-slate-250',
-    wings: 'fill-slate-300',
-    belly: 'fill-slate-100',
-    feet: 'fill-orange-300',
-    beak: 'fill-yellow-400',
-    glasses: 'fill-slate-400',
+    head: 'fill-slate-800',
+    wings: 'fill-slate-800',
+    belly: 'fill-slate-800',
+    feet: 'fill-slate-800',
+    beak: 'fill-slate-800',
+    glasses: 'fill-slate-800',
   });
+  const [paintedParts, setPaintedParts] = useState<string[]>([]);
   const [colorsCompleted, setColorsCompleted] = useState(false);
 
   // --- 3. SCHOOL BAG SORTING GAME STATE ---
@@ -79,6 +80,15 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
       setSelectedColor('bg-blue-500');
       setSelectedColorName('Blue');
       setColorsCompleted(false);
+      setOwlColors({
+        head: 'fill-slate-800',
+        wings: 'fill-slate-800',
+        belly: 'fill-slate-800',
+        feet: 'fill-slate-800',
+        beak: 'fill-slate-800',
+        glasses: 'fill-slate-800',
+      });
+      setPaintedParts([]);
     } else if (slide.type === 'school') {
       const items = slide.vocabList || [];
       if (items.length > 0) {
@@ -178,8 +188,13 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
     handleSpeak(selectedColorName);
 
     // Track coloring progress
-    const coloredCount = Object.keys(owlColors).length;
-    if (coloredCount >= 4 && !colorsCompleted) {
+    const alreadyPainted = paintedParts.includes(part);
+    const newPainted = alreadyPainted ? paintedParts : [...paintedParts, part];
+    if (!alreadyPainted) {
+      setPaintedParts(newPainted);
+    }
+
+    if (newPainted.length >= 4 && !colorsCompleted) {
       // Allow completion once painted several parts
       setColorsCompleted(true);
     }
@@ -559,56 +574,56 @@ export default function VocabularySlides({ slide, studentName, onComplete }: Voc
             </div>
 
             {/* Coloring SVG Canvas Area */}
-            <div className="bg-slate-850 p-4 rounded-2xl border-2 border-slate-600 flex flex-col items-center justify-center h-full relative">
+            <div className="bg-slate-850 p-4 rounded-2xl border-2 border-slate-650 flex flex-col items-center justify-center h-full relative w-full">
               
               {/* Mascot Vector Outline coloring */}
-              <div className="w-52 h-52 relative border-2 border-dashed border-slate-500 rounded-full bg-slate-800 flex items-center justify-center overflow-hidden p-2">
+              <div className="w-72 h-72 md:w-80 md:h-80 relative border-4 border-dashed border-slate-500 rounded-full bg-slate-900 flex items-center justify-center overflow-hidden p-3 shadow-inner transition-all duration-300">
                 <svg viewBox="0 0 100 100" className="w-full h-full cursor-pointer">
                   {/* Feathers / Background Halo */}
-                  <polygon points="50,5 95,50 50,95 5,50" className="fill-slate-700/20 strokes-slate-500" />
+                  <polygon points="50,5 95,50 50,95 5,50" className="fill-slate-700/20 stroke-slate-500 stroke-[0.5]" />
                   
                   {/* Feet */}
-                  <ellipse cx="37" cy="88" rx="8" ry="4" className={`${owlColors.feet} stroke-slate-800 transition-colors cursor-pointer`} onClick={() => handlePaintPart('feet')} />
-                  <ellipse cx="63" cy="88" rx="8" ry="4" className={`${owlColors.feet} stroke-slate-800 transition-colors cursor-pointer`} onClick={() => handlePaintPart('feet')} />
+                  <ellipse cx="37" cy="88" rx="8" ry="4" className={`${owlColors.feet} stroke-slate-400 stroke-[1.5] transition-colors cursor-pointer`} onClick={() => handlePaintPart('feet')} />
+                  <ellipse cx="63" cy="88" rx="8" ry="4" className={`${owlColors.feet} stroke-slate-400 stroke-[1.5] transition-colors cursor-pointer`} onClick={() => handlePaintPart('feet')} />
 
                   {/* Wings */}
-                  <path d="M 15,40 C 5,50 5,70 20,75 Z" className={`${owlColors.wings} stroke-slate-800 transition-colors cursor-pointer`} onClick={() => handlePaintPart('wings')} />
-                  <path d="M 85,40 C 95,50 95,70 80,75 Z" className={`${owlColors.wings} stroke-slate-800 transition-colors cursor-pointer`} onClick={() => handlePaintPart('wings')} />
+                  <path d="M 15,40 C 5,50 5,70 20,75 Z" className={`${owlColors.wings} stroke-slate-400 stroke-[1.5] transition-colors cursor-pointer`} onClick={() => handlePaintPart('wings')} />
+                  <path d="M 85,40 C 95,50 95,70 80,75 Z" className={`${owlColors.wings} stroke-slate-400 stroke-[1.5] transition-colors cursor-pointer`} onClick={() => handlePaintPart('wings')} />
 
                   {/* Body/Head main */}
-                  <ellipse cx="50" cy="50" rx="32" ry="36" className={`${owlColors.head} stroke-slate-800 transition-colors cursor-pointer`} onClick={() => handlePaintPart('head')} />
+                  <ellipse cx="50" cy="50" rx="32" ry="36" className={`${owlColors.head} stroke-slate-400 stroke-[1.5] transition-colors cursor-pointer`} onClick={() => handlePaintPart('head')} />
 
                   {/* Belly Panel */}
-                  <ellipse cx="50" cy="62" rx="20" ry="18" className={`${owlColors.belly} stroke-slate-800 transition-colors cursor-pointer`} onClick={() => handlePaintPart('belly')} />
+                  <ellipse cx="50" cy="62" rx="20" ry="18" className={`${owlColors.belly} stroke-slate-400 stroke-[1.5] transition-colors cursor-pointer`} onClick={() => handlePaintPart('belly')} />
 
                   {/* Eyes (Glass frame and Eyes) */}
-                  <circle cx="38" cy="38" r="9" className="fill-white stroke-slate-800" />
-                  <circle cx="62" cy="38" r="9" className="fill-white stroke-slate-800" />
+                  <circle cx="38" cy="38" r="9" className="fill-white stroke-slate-400 stroke-[1.5]" />
+                  <circle cx="62" cy="38" r="9" className="fill-white stroke-slate-400 stroke-[1.5]" />
                   <circle cx="38" cy="38" r="4" className="fill-slate-900" />
                   <circle cx="62" cy="38" r="4" className="fill-slate-900" />
 
                   {/* Glasses frame connector (clicks colors) */}
-                  <rect x="42" y="36" width="16" height="4" className={`${owlColors.glasses} stroke-slate-800 cursor-pointer`} onClick={() => handlePaintPart('glasses')} />
+                  <rect x="42" y="36" width="16" height="4" className={`${owlColors.glasses} stroke-slate-400 stroke-[1.5] cursor-pointer`} onClick={() => handlePaintPart('glasses')} />
 
                   {/* Beak */}
-                  <polygon points="50,42 45,51 55,51" className={`${owlColors.beak} stroke-slate-800 cursor-pointer`} onClick={() => handlePaintPart('beak')} />
+                  <polygon points="50,42 45,51 55,51" className={`${owlColors.beak} stroke-slate-400 stroke-[1.5] cursor-pointer`} onClick={() => handlePaintPart('beak')} />
                 </svg>
                 
                 {colorsCompleted && (
-                  <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center p-2 text-center backdrop-blur-sm">
-                    <Sparkles className="w-8 h-8 text-yellow-300 animate-spin" />
+                  <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center p-2 text-center backdrop-blur-sm">
+                    <Sparkles className="w-10 h-10 text-yellow-300 animate-spin" />
                     <span className="font-extrabold text-sm text-yellow-250 mt-1">Uau, ficou lindo! 🦉🌈</span>
                     <button
-                      onClick={() => onComplete()}
-                      className="mt-2 bg-emerald-500 hover:bg-emerald-400 font-bold text-xs text-white px-3 py-1.5 rounded-full shadow border-b-2 border-emerald-700"
+                       onClick={() => onComplete()}
+                      className="mt-2 bg-emerald-500 hover:bg-emerald-400 font-bold text-xs text-white px-4 py-2 rounded-full shadow border-b-2 border-emerald-700 transition active:scale-95 cursor-pointer"
                     >
                       Ir para Mochila!
                     </button>
                   </div>
                 )}
               </div>
-              <div className="text-[10px] text-slate-400 mt-2 italic text-center">
-                Dica: Toque na Cabeça, Barriga, Asas, Óculos ou Pés do mascote para colorir.
+              <div className="text-xs text-slate-300 mt-2.5 font-bold italic text-center">
+                Dica: Toque na cabeça, barriga, asas, óculos ou pés do Quinti para colorir!
               </div>
             </div>
           </div>
